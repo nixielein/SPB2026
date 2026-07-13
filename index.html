@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>СПб 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg: #EFE7DC;
+      --card: #FFFFFF;
+      --ink: #1A1A1A;
+      --muted: #6B5D55;
+      --line: #D9CFC1;
+      --chip-warm: #E4D9C7;
+      --chip-blue: #C6E4F1;
+      --dash-blue: #7EB4D2;
+    }
+    html, body { overflow-x: hidden; }
+    body {
+      font-family: 'Inter Tight', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: -0.005em;
+    }
+    .chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .chip-warm { background: var(--chip-warm); }
+    .chip-blue { background: var(--chip-blue); }
+    .empty-slot {
+      border: 1.5px dashed var(--dash-blue);
+      border-radius: 6px;
+      padding: 12px;
+      text-align: center;
+      color: var(--dash-blue);
+      font-size: 14px;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <main class="max-w-[960px] mx-auto px-5 py-10 md:py-14">
+
+    <!-- Page header -->
+    <header class="mb-10">
+      <p class="text-[13px] uppercase tracking-widest text-[var(--muted)]">Расписание поездки</p>
+      <h1 class="text-[36px] sm:text-[44px] font-bold leading-tight mt-1">СПб · июль 2026</h1>
+    </header>
+
+    <!-- 19 июля — воскресенье -->
+    <section class="mb-10">
+      <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">19 Июля <span class="font-normal text-[var(--muted)]">(Воскресенье)</span></h2>
+      <p class="text-[14px] text-[var(--muted)] mt-2">Прибытие в 00:10 → Черкасова</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Даня</div>
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Ксения</div>
+
+        <!-- Joint: День -->
+        <article class="md:col-span-2 bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">День</span>
+            <span class="chip chip-warm">Черкасова</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">Отдых + немного развлечений</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Отдых. Можем в Озерки или Академку прошвырнуться, может настолку купить поиграть. Даня сходит в лазалку, вечером дома посидим.</p>
+        </article>
+
+        <!-- Joint: Вечер -->
+        <article class="md:col-span-2 bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="chip chip-warm">Черкасова</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">Ужин дома</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Поиграть в настолки, посмотреть фотки или фильм.</p>
+        </article>
+      </div>
+    </section>
+
+    <hr class="border-t border-[var(--line)] my-10">
+
+    <!-- 20 июля — понедельник -->
+    <section class="mb-10">
+      <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">20 Июля <span class="font-normal text-[var(--muted)]">(Понедельник)</span></h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Даня</div>
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Ксения</div>
+
+        <!-- Joint: День -->
+        <article class="md:col-span-2 bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">День</span>
+            <span class="chip chip-warm">Черкасова</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">Отдых + немного развлечений</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Может около Черкасова, может около Пионерской.</p>
+        </article>
+
+        <!-- Split: Вечер (Даня) -->
+        <article class="bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="chip chip-blue">Пионерская</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">Отдых + немного развлечений</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Может около Черкасова, может около Пионерской.</p>
+        </article>
+
+        <!-- Split: Вечер (Ксения) -->
+        <article class="bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="chip chip-warm">Черкасова</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">Ужин</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Может около Черкасова, может около Пионерской.</p>
+          <div class="empty-slot mt-3">Свободный слот теоретически</div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
