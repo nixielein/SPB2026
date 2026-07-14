@@ -29,6 +29,11 @@
       letter-spacing: -0.005em;
     }
     section[id^="day-"] { scroll-margin-top: var(--bar-h, 220px); }
+    .weekend-day {
+      background: #EDB891;
+      padding: 22px 22px 24px;
+      border-radius: 20px;
+    }
     .chip {
       display: inline-flex; align-items: center;
       padding: 3px 10px;
@@ -140,7 +145,11 @@
       </a>
       <a href="#day-25" class="tab-card" data-day="25">
         <span class="tab-date">25 Июля</span><span class="tab-dow">СБ</span>
-        <span class="presence-pill"><span class="pp-cherkasova"></span><span class="pp-cherkasova"></span></span>
+        <span class="presence-pill"><span class="pp-cherkasova"></span><span class="pp-pionerskaya"></span></span>
+      </a>
+      <a href="#day-26" class="tab-card" data-day="26">
+        <span class="tab-date">26 Июля</span><span class="tab-dow">ВС</span>
+        <span class="presence-pill"><span class="pp-pionerskaya"></span><span class="pp-pionerskaya"></span></span>
       </a>
     </nav>
     </div>
@@ -149,7 +158,7 @@
   <main class="max-w-[960px] mx-auto px-5 py-8">
 
     <!-- 19 июля — воскресенье -->
-    <section id="day-19" class="mb-10">
+    <section id="day-19" class="mb-10 weekend-day">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">19 Июля <span class="font-normal text-[var(--muted)]">(Воскресенье)</span></h2>
       <p class="text-[14px] text-[var(--muted)] mt-2">Прибытие в 00:10 → Черкасова</p>
 
@@ -178,8 +187,6 @@
         </article>
       </div>
     </section>
-
-    <hr class="border-t border-[var(--line)] my-10">
 
     <!-- 20 июля — понедельник -->
     <section id="day-20" class="mb-10">
@@ -220,8 +227,6 @@
         </article>
       </div>
     </section>
-
-    <hr class="border-t border-[var(--line)] my-10">
 
     <!-- 21 июля — вторник -->
     <section id="day-21" class="mb-10">
@@ -273,8 +278,6 @@
       </div>
     </section>
 
-    <hr class="border-t border-[var(--line)] my-10">
-
     <!-- 22 июля — среда -->
     <section id="day-22" class="mb-10">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">22 Июля <span class="font-normal text-[var(--muted)]">(Среда)</span></h2>
@@ -303,8 +306,6 @@
       </div>
     </section>
 
-    <hr class="border-t border-[var(--line)] my-10">
-
     <!-- 23 июля — четверг -->
     <section id="day-23" class="mb-10">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">23 Июля <span class="font-normal text-[var(--muted)]">(Четверг)</span></h2>
@@ -332,8 +333,6 @@
         </article>
       </div>
     </section>
-
-    <hr class="border-t border-[var(--line)] my-10">
 
     <!-- 24 июля — пятница -->
     <section id="day-24" class="mb-10">
@@ -375,10 +374,8 @@
       </div>
     </section>
 
-    <hr class="border-t border-[var(--line)] my-10">
-
     <!-- 25 июля — суббота -->
-    <section id="day-25" class="mb-10">
+    <section id="day-25" class="mb-6 weekend-day">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">25 Июля <span class="font-normal text-[var(--muted)]">(Суббота)</span></h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
@@ -395,14 +392,52 @@
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
         </article>
 
+        <!-- Joint: Вечер -->
+        <article class="md:col-span-2 bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">День рождения д. Лёши</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Кафе? Даня остается на Пионерской.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 26 июля — воскресенье -->
+    <section id="day-26" class="mb-10 weekend-day">
+      <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">26 Июля <span class="font-normal text-[var(--muted)]">(Воскресенье)</span></h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Даня</div>
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Ксения</div>
+
+        <!-- Split: Утро (Даня) -->
+        <article class="bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
+            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">Даня на Пионерской</h3>
+        </article>
+
+        <!-- Split: Утро (Ксения) — slot -->
+        <article class="slot-card rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
+            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+          </div>
+          <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
+        </article>
+
         <!-- Split: Вечер (Даня) -->
         <article class="bg-white rounded-xl p-5">
           <div class="flex items-center gap-3 mb-3">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская 0,5 дня</span>
           </div>
-          <h3 class="text-[17px] font-semibold">→ Город (Черкасова)</h3>
-          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
+          <h3 class="text-[17px] font-semibold">Даня на Пионерской</h3>
         </article>
 
         <!-- Split: Вечер (Ксения) — slot -->
