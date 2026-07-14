@@ -46,6 +46,11 @@
       font-size: 14px;
       background: transparent;
     }
+    .slot-card {
+      background: #EEE9FC;
+      border: 1.5px solid #6B37DD;
+    }
+    .slot-title { color: #6B37DD; }
   </style>
 </head>
 <body>
@@ -102,7 +107,7 @@
         <article class="md:col-span-2 bg-white rounded-xl p-5">
           <div class="flex items-center gap-3 mb-3">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">День</span>
-            <span class="chip chip-warm">Черкасова</span>
+            <span class="chip chip-warm">Черкасова 0,5 дня</span>
           </div>
           <h3 class="text-[17px] font-semibold">Отдых + немного развлечений</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Может около Черкасова, может около Пионерской.</p>
@@ -112,21 +117,72 @@
         <article class="bg-white rounded-xl p-5">
           <div class="flex items-center gap-3 mb-3">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-blue">Пионерская</span>
+            <span class="chip chip-blue">Пионерская 0,5 дня</span>
           </div>
-          <h3 class="text-[17px] font-semibold">Отдых + немного развлечений</h3>
-          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Может около Черкасова, может около Пионерской.</p>
+          <h3 class="text-[17px] font-semibold">→ Пионерская (после 4)</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дома наверное.</p>
         </article>
 
-        <!-- Split: Вечер (Ксения) -->
-        <article class="bg-white rounded-xl p-5">
+        <!-- Split: Вечер (Ксения) — slot -->
+        <article class="slot-card rounded-xl p-5">
           <div class="flex items-center gap-3 mb-3">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
             <span class="chip chip-warm">Черкасова</span>
           </div>
-          <h3 class="text-[17px] font-semibold">Ужин</h3>
-          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Может около Черкасова, может около Пионерской.</p>
-          <div class="empty-slot mt-3">Свободный слот теоретически</div>
+          <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
+        </article>
+      </div>
+    </section>
+
+    <hr class="border-t border-[var(--line)] my-10">
+
+    <!-- 21 июля — вторник -->
+    <section class="mb-10">
+      <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">21 Июля <span class="font-normal text-[var(--muted)]">(Вторник)</span></h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Даня</div>
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Ксения</div>
+
+        <!-- Split: Утро (Даня) -->
+        <article class="bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
+            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">На Пионерской</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Т Таня и д Леша решат.</p>
+        </article>
+
+        <!-- Split: Утро (Ксения) — slot -->
+        <article class="slot-card rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
+            <span class="chip chip-warm">Черкасова</span>
+          </div>
+          <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
+        </article>
+
+        <!-- Split: Вечер (Даня) -->
+        <article class="bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="chip chip-blue">Пионерская / 0,5 дня</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">→ Черкасова (поздно вечером)</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Поздно вечером — как решите, можно и после 9, чтобы нам просто утром по возможности на дачу собраться.</p>
+        </article>
+
+        <!-- Split: Вечер (Ксения) — slot -->
+        <article class="slot-card rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="chip chip-warm">Черкасова</span>
+          </div>
+          <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
         </article>
       </div>
     </section>
