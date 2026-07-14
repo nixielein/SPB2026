@@ -29,10 +29,15 @@
       letter-spacing: -0.005em;
     }
     section[id^="day-"] { scroll-margin-top: var(--bar-h, 220px); }
-    .weekend-day {
-      background: #EDB891;
+    .weekend-day, .weekday-day {
       padding: 22px 22px 24px;
       border-radius: 20px;
+    }
+    .weekend-day { background: #EDB891; }
+    .weekday-day { background: #ffffff; }
+    .weekday-day article.bg-white {
+      background: #F5F1E8;
+      border: 1px solid #E8E0D1;
     }
     .chip {
       display: inline-flex; align-items: center;
@@ -158,7 +163,7 @@
   <main class="max-w-[960px] mx-auto px-5 py-8">
 
     <!-- 19 июля — воскресенье -->
-    <section id="day-19" class="mb-10 weekend-day">
+    <section id="day-19" class="mb-6 weekend-day">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">19 Июля <span class="font-normal text-[var(--muted)]">(Воскресенье)</span></h2>
       <p class="text-[14px] text-[var(--muted)] mt-2">Прибытие в 00:10 → Черкасова</p>
 
@@ -189,7 +194,7 @@
     </section>
 
     <!-- 20 июля — понедельник -->
-    <section id="day-20" class="mb-10">
+    <section id="day-20" class="mb-6 weekday-day">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">20 Июля <span class="font-normal text-[var(--muted)]">(Понедельник)</span></h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
@@ -229,7 +234,7 @@
     </section>
 
     <!-- 21 июля — вторник -->
-    <section id="day-21" class="mb-10">
+    <section id="day-21" class="mb-6 weekday-day">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">21 Июля <span class="font-normal text-[var(--muted)]">(Вторник)</span></h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
@@ -279,7 +284,7 @@
     </section>
 
     <!-- 22 июля — среда -->
-    <section id="day-22" class="mb-10">
+    <section id="day-22" class="mb-6 weekday-day">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">22 Июля <span class="font-normal text-[var(--muted)]">(Среда)</span></h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
@@ -307,7 +312,7 @@
     </section>
 
     <!-- 23 июля — четверг -->
-    <section id="day-23" class="mb-10">
+    <section id="day-23" class="mb-6 weekday-day">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">23 Июля <span class="font-normal text-[var(--muted)]">(Четверг)</span></h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
@@ -335,7 +340,7 @@
     </section>
 
     <!-- 24 июля — пятница -->
-    <section id="day-24" class="mb-10">
+    <section id="day-24" class="mb-6 weekday-day">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">24 Июля <span class="font-normal text-[var(--muted)]">(Пятница)</span></h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
