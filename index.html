@@ -16,7 +16,7 @@
       --muted: #6B5D55;
       --line: #D9CFC1;
       --chip-warm: #E4D9C7;
-      --chip-blue: #C6E4F1;
+      --chip-blue: #8BE5F7;
       --chip-amber: #FF7B46;
       --dash-blue: #7EB4D2;
     }
@@ -38,6 +38,11 @@
     article.bg-white {
       background: #F7F7F7;
       border: 1px solid #E3E3E3;
+    }
+    /* Cards where Даня is on Пионерская — light blue tint */
+    article.bg-white:has(.chip-blue) {
+      background: #EAF5F7;
+      border-color: #8BE5F7;
     }
     /* Card header — time label + chip. On mobile: stack; on md+: inline */
     .card-header {
@@ -68,10 +73,21 @@
       background: transparent;
     }
     .slot-card {
-      background: #EEE9FC;
-      border: 1.5px solid #6B37DD;
+      background: #F4F0F9;
+      border: 1.5px dashed #767676;
+      color: #767676;
     }
-    .slot-title { color: #6B37DD; }
+    .slot-card * { color: inherit !important; }
+    .slot-title { color: #767676; }
+    .slot-chip {
+      display: inline-flex; align-items: center;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 500;
+      background: #767676;
+      color: #ffffff !important;
+    }
     /* Fixed top bar (title + legend + tabs) */
     .top-bar {
       position: fixed; top: 0; left: 0; right: 0;
@@ -268,7 +284,7 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">День</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">Отдых + немного развлечений</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Может около Черкасова, может около Пионерской.</p>
@@ -278,7 +294,7 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">→ Пионерская (после 4)</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дома наверное.</p>
@@ -288,7 +304,7 @@
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -308,7 +324,7 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">На Пионерской</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Т Таня и д Леша решат.</p>
@@ -318,7 +334,7 @@
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -328,7 +344,7 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-blue">Пионерская / 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">→ Черкасова (поздно вечером)</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Поздно вечером — как решите, можно и после 9, чтобы нам просто утром по возможности на дачу собраться.</p>
@@ -338,7 +354,7 @@
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -357,7 +373,7 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">Дача если погода ок</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
@@ -366,7 +382,7 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">Дача если погода ок</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
@@ -385,7 +401,7 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">Дача если погода ок</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
@@ -394,7 +410,7 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">Дача если погода ок</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
@@ -414,7 +430,7 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">Дача если погода ок</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
@@ -424,7 +440,7 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">→ Город (Черкасова)</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
@@ -434,7 +450,7 @@
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -454,7 +470,7 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">Дача если погода ок</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
@@ -464,7 +480,7 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">День рождения д. Лёши</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Кафе? Даня остается на Пионерской.</p>
@@ -484,7 +500,7 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">Даня на Пионерской</h3>
         </article>
@@ -493,7 +509,7 @@
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -503,7 +519,7 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">Даня на Пионерской</h3>
         </article>
@@ -512,7 +528,7 @@
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -530,14 +546,14 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">Даня на Пионерской</h3>
         </article>
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -546,14 +562,14 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">Даня на Пионерской</h3>
         </article>
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -571,14 +587,14 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">Даня на Пионерской</h3>
         </article>
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -587,7 +603,7 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">Заберу Даню вечером</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Т Таня выходная. А д Лёша нет?</p>
@@ -595,7 +611,7 @@
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -613,14 +629,14 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">чччч</h3>
         </article>
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">чччччч</h3>
         </article>
@@ -637,14 +653,14 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">ччччч</h3>
         </article>
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">чччччч</h3>
         </article>
@@ -661,7 +677,7 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">ччччч</h3>
         </article>
@@ -669,13 +685,14 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">чччччч</h3>
         </article>
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально встреча с девочками</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Яна, лера, натали. Натали на выходных хотела на дачу, но может сможет в пятницу.</p>
@@ -708,7 +725,7 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">Поздно вечером возвращаюсь, оставив Даню с Лерой и Мироном</h3>
         </article>
@@ -732,7 +749,7 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">15:00 Придёт Антон с девочками на Черкасова</h3>
         </article>
@@ -749,14 +766,14 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">xxxxx</h3>
         </article>
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+            <span class="chip chip-warm">Черкасова</span>
           </div>
           <h3 class="text-[17px] font-semibold">xxxxxxx</h3>
         </article>
@@ -773,13 +790,14 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">Можно забрать Даню или я привезу</h3>
         </article>
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -788,13 +806,14 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">Даня на Пионерской</h3>
         </article>
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -812,13 +831,14 @@
         <article class="bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">Даня на Пионерской</h3>
         </article>
         <article class="slot-card rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
+            <span class="slot-chip">Потенциальный слот</span>
           </div>
           <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
           <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
@@ -827,7 +847,7 @@
         <article class="col-span-2 bg-white rounded-xl p-5">
           <div class="card-header">
             <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
-            <span class="chip chip-blue">Пионерская 0,5 дня</span>
+            <span class="chip chip-blue">Пионерская</span>
           </div>
           <h3 class="text-[17px] font-semibold">Семейный вечер перед отбытием</h3>
         </article>
