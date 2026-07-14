@@ -17,6 +17,7 @@
       --line: #D9CFC1;
       --chip-warm: #E4D9C7;
       --chip-blue: #C6E4F1;
+      --chip-amber: #F5DFB4;
       --dash-blue: #7EB4D2;
     }
     html { scroll-behavior: smooth; }
@@ -28,7 +29,8 @@
       -webkit-font-smoothing: antialiased;
       letter-spacing: -0.005em;
     }
-    section[id^="day-"] { scroll-margin-top: 100px; }
+    section[id^="day-"] { scroll-margin-top: 220px; }
+    @media (min-width: 640px) { section[id^="day-"] { scroll-margin-top: 200px; } }
     .chip {
       display: inline-flex; align-items: center;
       padding: 3px 10px;
@@ -53,19 +55,25 @@
       border: 1.5px solid #6B37DD;
     }
     .slot-title { color: #6B37DD; }
-    /* Tabs */
-    .tabs-wrap {
+    /* Sticky top bar (title + legend + tabs) */
+    .top-bar {
       position: sticky; top: 0; z-index: 40;
-      background: var(--bg);
-      padding-top: 12px;
-      margin-bottom: 24px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
     }
-    .tabs-wrap::after {
-      content: ""; display: block;
-      height: 12px;
-      background: linear-gradient(var(--bg), rgba(239,231,220,0));
+    .top-bar-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px 20px 14px;
     }
-    .tabs { display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 10px; scrollbar-width: none; }
+    .legend {
+      display: flex; flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-top: 12px;
+    }
+    .legend-item { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink); }
+    .legend-dot { width: 22px; height: 12px; border-radius: 999px; }
+    .tabs { display: flex; gap: 8px; overflow-x: auto; padding: 12px 0 4px; scrollbar-width: none; }
     .tabs::-webkit-scrollbar { display: none; }
     .tab-card {
       min-width: 96px;
@@ -92,19 +100,19 @@
     .presence-pill > span { flex: 1; }
     .pp-cherkasova { background: var(--chip-warm); }
     .pp-pionerskaya { background: var(--chip-blue); }
+    .pp-elsewhere { background: var(--chip-amber); }
   </style>
 </head>
 <body>
-  <main class="max-w-[960px] mx-auto px-5 py-10 md:py-14">
-
-    <!-- Page header -->
-    <header class="mb-6">
-      <p class="text-[13px] uppercase tracking-widest text-[var(--muted)]">Расписание поездки</p>
-      <h1 class="text-[36px] sm:text-[44px] font-bold leading-tight mt-1">СПб · июль 2026</h1>
-    </header>
-
-    <!-- Day tabs — Даня's presence: left half = утро/день, right = вечер -->
-    <div class="tabs-wrap">
+  <!-- Sticky top bar: title + legend + day tabs -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <h1 class="text-[26px] sm:text-[32px] font-bold leading-tight">Ксения и Даня в СПБ 2026</h1>
+      <div class="legend">
+        <span class="legend-item"><span class="legend-dot pp-pionerskaya"></span> Даня на Пионерской</span>
+        <span class="legend-item"><span class="legend-dot pp-cherkasova"></span> Даня на Черкасова</span>
+        <span class="legend-item"><span class="legend-dot pp-elsewhere"></span> Даня где-то ещё</span>
+      </div>
     <nav class="tabs" aria-label="Days">
       <a href="#day-19" class="tab-card" data-day="19">
         <span class="tab-date">19 Июля</span><span class="tab-dow">ВС</span>
@@ -136,6 +144,9 @@
       </a>
     </nav>
     </div>
+  </div>
+
+  <main class="max-w-[960px] mx-auto px-5 py-8">
 
     <!-- 19 июля — воскресенье -->
     <section id="day-19" class="mb-10">
