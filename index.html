@@ -19,6 +19,7 @@
       --chip-blue: #C6E4F1;
       --dash-blue: #7EB4D2;
     }
+    html { scroll-behavior: smooth; }
     html, body { overflow-x: hidden; }
     body {
       font-family: 'Inter Tight', system-ui, sans-serif;
@@ -27,6 +28,7 @@
       -webkit-font-smoothing: antialiased;
       letter-spacing: -0.005em;
     }
+    section[id^="day-"] { scroll-margin-top: 24px; }
     .chip {
       display: inline-flex; align-items: center;
       padding: 3px 10px;
@@ -51,19 +53,79 @@
       border: 1.5px solid #6B37DD;
     }
     .slot-title { color: #6B37DD; }
+    /* Tabs */
+    .tabs { display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 10px; scrollbar-width: none; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab-card {
+      min-width: 96px;
+      padding: 12px 14px 10px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      display: flex; flex-direction: column;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .tab-card:hover { background: rgba(255,255,255,0.55); }
+    .tab-card.active { background: #ffffff; border-color: transparent; }
+    .tab-date { font-size: 14px; font-weight: 700; line-height: 1.15; }
+    .tab-dow { font-size: 13px; font-weight: 500; color: var(--muted); margin-top: 2px; }
+    .presence-pill {
+      display: flex;
+      width: 56px; height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .presence-pill > span { flex: 1; }
+    .pp-cherkasova { background: var(--chip-warm); }
+    .pp-pionerskaya { background: var(--chip-blue); }
   </style>
 </head>
 <body>
   <main class="max-w-[960px] mx-auto px-5 py-10 md:py-14">
 
     <!-- Page header -->
-    <header class="mb-10">
+    <header class="mb-6">
       <p class="text-[13px] uppercase tracking-widest text-[var(--muted)]">Расписание поездки</p>
       <h1 class="text-[36px] sm:text-[44px] font-bold leading-tight mt-1">СПб · июль 2026</h1>
     </header>
 
+    <!-- Day tabs — Даня's presence: left half = утро/день, right = вечер -->
+    <nav class="tabs mb-8" aria-label="Days">
+      <a href="#day-19" class="tab-card" data-day="19">
+        <span class="tab-date">19 Июля</span><span class="tab-dow">ВС</span>
+        <span class="presence-pill"><span class="pp-cherkasova"></span><span class="pp-cherkasova"></span></span>
+      </a>
+      <a href="#day-20" class="tab-card" data-day="20">
+        <span class="tab-date">20 Июля</span><span class="tab-dow">ПН</span>
+        <span class="presence-pill"><span class="pp-cherkasova"></span><span class="pp-pionerskaya"></span></span>
+      </a>
+      <a href="#day-21" class="tab-card" data-day="21">
+        <span class="tab-date">21 Июля</span><span class="tab-dow">ВТ</span>
+        <span class="presence-pill"><span class="pp-pionerskaya"></span><span class="pp-pionerskaya"></span></span>
+      </a>
+      <a href="#day-22" class="tab-card" data-day="22">
+        <span class="tab-date">22 Июля</span><span class="tab-dow">СР</span>
+        <span class="presence-pill"><span class="pp-cherkasova"></span><span class="pp-cherkasova"></span></span>
+      </a>
+      <a href="#day-23" class="tab-card" data-day="23">
+        <span class="tab-date">23 Июля</span><span class="tab-dow">ЧТ</span>
+        <span class="presence-pill"><span class="pp-cherkasova"></span><span class="pp-cherkasova"></span></span>
+      </a>
+      <a href="#day-24" class="tab-card" data-day="24">
+        <span class="tab-date">24 Июля</span><span class="tab-dow">ПТ</span>
+        <span class="presence-pill"><span class="pp-cherkasova"></span><span class="pp-cherkasova"></span></span>
+      </a>
+      <a href="#day-25" class="tab-card" data-day="25">
+        <span class="tab-date">25 Июля</span><span class="tab-dow">СБ</span>
+        <span class="presence-pill"><span class="pp-cherkasova"></span><span class="pp-cherkasova"></span></span>
+      </a>
+    </nav>
+
     <!-- 19 июля — воскресенье -->
-    <section class="mb-10">
+    <section id="day-19" class="mb-10">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">19 Июля <span class="font-normal text-[var(--muted)]">(Воскресенье)</span></h2>
       <p class="text-[14px] text-[var(--muted)] mt-2">Прибытие в 00:10 → Черкасова</p>
 
@@ -96,7 +158,7 @@
     <hr class="border-t border-[var(--line)] my-10">
 
     <!-- 20 июля — понедельник -->
-    <section class="mb-10">
+    <section id="day-20" class="mb-10">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">20 Июля <span class="font-normal text-[var(--muted)]">(Понедельник)</span></h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
@@ -138,7 +200,7 @@
     <hr class="border-t border-[var(--line)] my-10">
 
     <!-- 21 июля — вторник -->
-    <section class="mb-10">
+    <section id="day-21" class="mb-10">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">21 Июля <span class="font-normal text-[var(--muted)]">(Вторник)</span></h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
@@ -190,7 +252,7 @@
     <hr class="border-t border-[var(--line)] my-10">
 
     <!-- 22 июля — среда -->
-    <section class="mb-10">
+    <section id="day-22" class="mb-10">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">22 Июля <span class="font-normal text-[var(--muted)]">(Среда)</span></h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
@@ -220,7 +282,7 @@
     <hr class="border-t border-[var(--line)] my-10">
 
     <!-- 23 июля — четверг -->
-    <section class="mb-10">
+    <section id="day-23" class="mb-10">
       <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">23 Июля <span class="font-normal text-[var(--muted)]">(Четверг)</span></h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
@@ -247,6 +309,114 @@
       </div>
     </section>
 
+    <hr class="border-t border-[var(--line)] my-10">
+
+    <!-- 24 июля — пятница -->
+    <section id="day-24" class="mb-10">
+      <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">24 Июля <span class="font-normal text-[var(--muted)]">(Пятница)</span></h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Даня</div>
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Ксения</div>
+
+        <!-- Joint: Утро -->
+        <article class="md:col-span-2 bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
+            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">Дача если погода ок</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
+        </article>
+
+        <!-- Split: Вечер (Даня) -->
+        <article class="bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">→ Город (Черкасова)</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
+        </article>
+
+        <!-- Split: Вечер (Ксения) — slot -->
+        <article class="slot-card rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+          </div>
+          <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
+        </article>
+      </div>
+    </section>
+
+    <hr class="border-t border-[var(--line)] my-10">
+
+    <!-- 25 июля — суббота -->
+    <section id="day-25" class="mb-10">
+      <h2 class="text-[24px] sm:text-[28px] font-bold leading-tight">25 Июля <span class="font-normal text-[var(--muted)]">(Суббота)</span></h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Даня</div>
+        <div class="hidden md:block text-[14px] text-[var(--muted)]">Ксения</div>
+
+        <!-- Joint: Утро -->
+        <article class="md:col-span-2 bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Утро</span>
+            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">Дача если погода ок</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
+        </article>
+
+        <!-- Split: Вечер (Даня) -->
+        <article class="bg-white rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+          </div>
+          <h3 class="text-[17px] font-semibold">→ Город (Черкасова)</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Дача?</p>
+        </article>
+
+        <!-- Split: Вечер (Ксения) — slot -->
+        <article class="slot-card rounded-xl p-5">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-[14px] text-[var(--muted)] w-[52px] shrink-0">Вечер</span>
+            <span class="chip chip-warm">Черкасова 0,5 дня</span>
+          </div>
+          <h3 class="text-[17px] font-semibold slot-title">Потенциально слот для чего-то</h3>
+          <p class="text-[14px] text-[var(--muted)] mt-1.5 leading-[1.55]">Варианты: оооооооо</p>
+        </article>
+      </div>
+    </section>
+
   </main>
+
+  <script>
+    (function() {
+      const tabs = document.querySelectorAll('.tab-card');
+      const sections = document.querySelectorAll('section[id^="day-"]');
+      if (!tabs.length || !sections.length) return;
+
+      function setActive(day) {
+        tabs.forEach(t => t.classList.toggle('active', t.dataset.day === day));
+      }
+      setActive(sections[0].id.replace('day-', ''));
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) setActive(e.target.id.replace('day-', ''));
+        });
+      }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+      sections.forEach(s => io.observe(s));
+
+      // Click: also mark the tab active immediately (before scroll finishes)
+      tabs.forEach(t => t.addEventListener('click', () => setActive(t.dataset.day)));
+    })();
+  </script>
 </body>
 </html>
