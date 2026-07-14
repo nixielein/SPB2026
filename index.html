@@ -28,8 +28,7 @@
       -webkit-font-smoothing: antialiased;
       letter-spacing: -0.005em;
     }
-    section[id^="day-"] { scroll-margin-top: 220px; }
-    @media (min-width: 640px) { section[id^="day-"] { scroll-margin-top: 200px; } }
+    section[id^="day-"] { scroll-margin-top: var(--bar-h, 220px); }
     .chip {
       display: inline-flex; align-items: center;
       padding: 3px 10px;
@@ -54,12 +53,14 @@
       border: 1.5px solid #6B37DD;
     }
     .slot-title { color: #6B37DD; }
-    /* Sticky top bar (title + legend + tabs) */
+    /* Fixed top bar (title + legend + tabs) */
     .top-bar {
-      position: sticky; top: 0; z-index: 40;
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 40;
       background: #ffffff;
       border-bottom: 1px solid var(--line);
     }
+    body { padding-top: var(--bar-h, 220px); }
     .top-bar-inner {
       max-width: 960px;
       margin: 0 auto;
@@ -420,6 +421,16 @@
 
   <script>
     (function() {
+      const bar = document.querySelector('.top-bar');
+      function syncBar() {
+        if (!bar) return;
+        document.documentElement.style.setProperty('--bar-h', bar.offsetHeight + 'px');
+      }
+      syncBar();
+      window.addEventListener('resize', syncBar);
+      window.addEventListener('load', syncBar);
+      if (bar && 'ResizeObserver' in window) new ResizeObserver(syncBar).observe(bar);
+
       const tabs = document.querySelectorAll('.tab-card');
       const sections = document.querySelectorAll('section[id^="day-"]');
       if (!tabs.length || !sections.length) return;
