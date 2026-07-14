@@ -28,7 +28,7 @@
       -webkit-font-smoothing: antialiased;
       letter-spacing: -0.005em;
     }
-    section[id^="day-"] { scroll-margin-top: 24px; }
+    section[id^="day-"] { scroll-margin-top: 100px; }
     .chip {
       display: inline-flex; align-items: center;
       padding: 3px 10px;
@@ -54,6 +54,17 @@
     }
     .slot-title { color: #6B37DD; }
     /* Tabs */
+    .tabs-wrap {
+      position: sticky; top: 0; z-index: 40;
+      background: var(--bg);
+      padding-top: 12px;
+      margin-bottom: 24px;
+    }
+    .tabs-wrap::after {
+      content: ""; display: block;
+      height: 12px;
+      background: linear-gradient(var(--bg), rgba(239,231,220,0));
+    }
     .tabs { display: flex; gap: 8px; overflow-x: auto; padding: 2px 0 10px; scrollbar-width: none; }
     .tabs::-webkit-scrollbar { display: none; }
     .tab-card {
@@ -93,7 +104,8 @@
     </header>
 
     <!-- Day tabs — Даня's presence: left half = утро/день, right = вечер -->
-    <nav class="tabs mb-8" aria-label="Days">
+    <div class="tabs-wrap">
+    <nav class="tabs" aria-label="Days">
       <a href="#day-19" class="tab-card" data-day="19">
         <span class="tab-date">19 Июля</span><span class="tab-dow">ВС</span>
         <span class="presence-pill"><span class="pp-cherkasova"></span><span class="pp-cherkasova"></span></span>
@@ -123,6 +135,7 @@
         <span class="presence-pill"><span class="pp-cherkasova"></span><span class="pp-cherkasova"></span></span>
       </a>
     </nav>
+    </div>
 
     <!-- 19 июля — воскресенье -->
     <section id="day-19" class="mb-10">
