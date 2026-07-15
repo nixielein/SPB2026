@@ -940,9 +940,7 @@
     (async function() {
       const els = document.querySelectorAll('.weather[data-date]');
       if (!els.length) return;
-      const dates = [...els].map(e => e.dataset.date).sort();
-      const start = dates[0], end = dates[dates.length - 1];
-      const url = `https://api.open-meteo.com/v1/forecast?latitude=59.94&longitude=30.31&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FMoscow&start_date=${start}&end_date=${end}`;
+      const url = 'https://api.open-meteo.com/v1/forecast?latitude=59.94&longitude=30.31&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FMoscow&forecast_days=16';
 
       const codeEmoji = (c) => {
         if (c === 0) return '☀️';
